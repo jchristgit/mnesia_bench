@@ -1,0 +1,17 @@
+{application, mnesia_bench,
+ [{description, "mnesia benchmarking stand"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, {mnesia_bench_app, []}},
+  {applications,
+   [kernel,
+    stdlib,
+    inets,
+    mnesia
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {licenses, ["Apache 2.0"]},
+  {links, []}
+ ]}.

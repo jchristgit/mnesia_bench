@@ -1,0 +1,45 @@
+main {
+  margin: 1em auto;
+  max-width: 50em;
+  padding: 0 .62em;
+  font: 1.2em/1.62 sans-serif;
+}
+h1, h2, h3 {
+  line-height: 1.2;
+}
+a {
+  text-decoration: none;
+}
+.date {
+  text-align: center;
+}
+div.highlight pre {
+  overflow-x: scroll;
+  padding: 0.5em;
+}
+.reply-link {
+  float: right;
+  margin-bottom: 2em;
+}
+
+div.chart {
+    width: 50%;
+    float: left;
+}
+
+@media (prefers-color-scheme: dark) {
+   
+  html {
+    filter: invert(100%) hue-rotate(180deg) brightness(105%) contrast(85%);
+    -webkit-filter: invert(100%) hue-rotate(180deg) brightness(105%) contrast(85%);
+  }
+  body, html {
+    background-color: #FFF;
+  }
+  img,
+  video,
+  body * [style*="background-image"] {
+    filter: hue-rotate(180deg) contrast(100%) invert(100%);
+    -webkit-filter: hue-rotate(180deg) contrast(100%) invert(100%);
+  }
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>mnesia bench</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="apexcharts.js"></script>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <main>
+            <center>
+                <h1>mnesia bench</h1>
+                <div>
+                    <button onclick="start()">Start mnesia</button>
+                    <button onclick="stop()">Stop mnesia</button>
+                    <button onclick="reset()">Reset mnesia</button>
+                    <button onclick="createSchema()">Create schema</button>
+                    on
+                    <select name="location" id="ctllocation">
+                        <option value="local">this node</option>
+                        <option value="global">all nodes</option>
+                    </select>
+                </div>
+                <div>
+                    <button onclick="mktab()">Create table</button>
+                    on
+                    <select name="location" id="tablocation">
+                        <option value="local">this node</option>
+                        <option value="global">all nodes</option>
+                    </select>
+                    using
+                    <select name="type" id="tabtype">
+                        <option value="ram_copies">ram_copies</option>
+                        <option value="disc_copies">disc_copies</option>
+                        <option value="disc_only_copies">disc_only_copies</option>
+                    </select>
+                </div>
+                <div>
+                    <button onclick="writeTab()">Write</button>
+                    <input id="tabrecords" type="number" placeholder="this much"></input>
+                    records to table
+                </div>
+                <div>
+                    <button onclick="startStressers()">Let</button>
+                    <input id="stressprocs" type="number" placeholder="this much"></input>
+                    stressers loose using
+                    <select name="type" id="stressmode">
+                        <option value="transaction">transactions</option>
+                        <option value="sync_transaction">sync transactions</option>
+                        <option value="sync_dirty">sync dirty</option>
+                        <option value="async_dirty">async dirty</option>
+                    </select>
+                    or
+                    <button onclick="killStressers()">kill them</button>
+                </div>
+                <div>
+                    <button onclick="modTableCopies()">Modify</button>
+                    table
+                    <select name="tab" id="tabmodtab">
+                        <option value="bench">bench</option>
+                        <option value="schema">schema</option>
+                    </select>
+                    to
+                    <select name="tabmodkind" id="tabmodkind">
+                        <option value="add">add</option>
+                        <option value="remove">remove</option>
+                    </select>
+                    copy of type
+                    <select name="type" id="tabmodtype">
+                        <option value="ram_copies">ram_copies</option>
+                        <option value="disc_copies">disc_copies</option>
+                        <option value="disc_only_copies">disc_only_copies</option>
+                    </select>
+                    on
+                    <input id="tabmodnode" placeholder="node"></input>
+                </div>
+                <div>
+                    Run a <button onclick="backup()">backup</button> on this node,
+                    or <button onclick="dumpTables()">dump ram tables</button>
+                </div>
+                <div>
+                    Erlang cluster nodes online: <span id="nodes"></span>
+                </div>
+            </center>
+            <br>
+            <div>
+                <div class="chart" id="transactions"></div>
+                <div class="chart" id="latency"></div>
+            </div>
+            <div>
+                <div class="chart" id="tabsize"></div>
+            </div>
+            <hr>
+            <pre id="log"></pre>
+        </main>
+    </body>
+    <script src="index.js"></script>
+</html>
