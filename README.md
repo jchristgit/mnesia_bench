@@ -4,6 +4,8 @@ mnesia_bench
 Benchmarking stand for [mnesia](https://www.erlang.org/doc/man/mnesia.html).
 Requires no dependencies apart from Erlang's standard library, and rebar.
 
+![screenshot](./static/screenshot.png)
+
 
 Build
 -----
